@@ -1,11 +1,14 @@
 package br.com.zup.database.repository
 
+import com.datastax.oss.driver.api.core.CqlSession
+import com.datastax.oss.driver.api.core.cql.SimpleStatement
 import br.com.zup.core.ports.LivroRepository
 import br.com.zup.database.entity.LivroEntity
 import java.lang.RuntimeException
 import java.util.*
+import javax.inject.Singleton
 
-
+@Singleton
 class LivroRepositoryImpl(private val cqlSession: CqlSession) : LivroRepository {
 
     override fun getAll(): List<LivroEntity> {
